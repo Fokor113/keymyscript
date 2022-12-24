@@ -1,0 +1,41 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Key system", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Fokor113/ownscript/main/myscript"), true))()
+
+getgenv().KeyInput = "string"
+
+function Destory()
+    game:GetService("CoreGui").Orion:Destory()
+end
+
+function checkKey()
+    if sf_key == KeyInput then
+        Destory()
+        wait(2)
+        local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+        local Window = OrionLib:MakeWindow({Name = "Key system", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+    end
+end  
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddTextbox({
+	Name = "Enter Key",
+	Default = "",
+	TextDisappear = true,
+	Callback = function(Value)
+		KeyInput = Value
+	end	  
+})
+
+Tab:AddButton({
+	Name = "Check Key!",
+	Callback = function()
+      	checkKey()
+  	end    
+})
